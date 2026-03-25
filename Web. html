@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System License - USA Access</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #1a1a2e;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        /* Base Container Styles */
+        .container {
+            width: 100%;
+            max-width: 450px;
+            background-color: #fff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .system-logo {
+            width: 80px;
+            height: 80px;
+            background-color: #0066cc;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .system-logo span {
+            color: #fff;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        h1 {
+            color: #1a1a2e;
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: #666;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        /* Forms */
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #0066cc;
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+        }
+
+        /* Buttons */
+        .btn {
+            width: 100%;
+            padding: 1rem;
+            background-color: #0066cc;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #0052a3;
+        }
+
+        /* Messages */
+        .message {
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: bold;
+            display: none;
+        }
+
+        .success {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #a5d6a7;
+        }
+
+        .error {
+            background-color: #ffebee;
+            color: #b71c1c;
+            border: 1px solid #ef9a9a;
+        }
+
+        /* Sections */
+        #license-section {
+            display: block;
+        }
+
+        #system-section {
+            display: none;
+            max-width: 600px;
+        }
+
+        #questionnaire-section {
+            display: none;
+            max-width: 600px;
+        }
+
+        #confirmation-section {
+            display: none;
+            max-width: 600px;
+        }
+
+        /* Questionnaire Styles */
+        .questionnaire-title {
+            color: #1a1a2e;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .note {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.3rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- License Validation Section -->
+    <div id="license-section" class="container">
+        <div class="system-logo">
+            <span>US</span>
+        </div>
+        <h1>USA LICENSE SYSTEM</h1>
+        <p class="subtitle">Validate credentials to access</p>
+
+        <div id="license-message" class="message"></div>
+
+        <div class="form-group">
+            <label for="user-name">Name</label>
+            <input type="text" id="user-name" placeholder="Enter your name">
+        </div>
+
+        <div class="form-group">
+            <label for="user-pass">Password</label>
+            <input type="password" id="user-pass" placeholder="Enter your password">
+        </div>
+
+        <div class="form-group">
+            <label for="user-ip">IP Identifier</label>
+            <input type="text" id="user-ip" placeholder="Enter your IP identifier">
+        </div>
+
+        <button class="btn" id="validate-license">VALIDATE LICENSE</button>
+    </div>
+
+    <!-- System Access Section -->
+    <div id="system-section" class="container">
+        <h1>ACCESS GRANTED</h1>
+        <p class="subtitle">Your license is active and valid</p>
+
+        <div class="form-group">
+            <p style="color: #333; margin-bottom: 1.5rem;">Welcome Willi! Your system access is confirmed. Click below to complete your VIP request.</p>
+        </div>
+
+        <button class="btn" id="start-questionnaire">START VIP QUESTIONNAIRE</button>
+    </div>
+
+    <!-- VIP Questionnaire Section -->
+    <div id="questionnaire-section" class="container">
+        <h1 class="questionnaire-title">VIP REQUEST FORM</h1>
+        <p class="subtitle">Maximum amount allowed: 1,500 USD</p>
+
+        <div id="questionnaire-message" class="message"></div>
+
+        <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" placeholder="Enter your first name">
+        </div>
+
+        <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" placeholder="Enter your last name">
+        </div>
+
+        <div class="form-group">
+            <label for="dni-number">ID / DNI Number</label>
+            <input type="text" id="dni-number" placeholder="Enter your ID/DNI">
+        </div>
+
+        <div class="form-group">
+            <label for="vip-amount">VIP Amount (USD)</label>
+            <input type="number" id="vip-amount" min="1" max="1500" step="0.01" placeholder="Max 1500.00">
+            <p class="note">* Maximum amount: 1,500 USD</p>
+        </div>
+
+        <button class="btn" id="submit-questionnaire">SEND TO TELEGRAM</button>
+    </div>
+
+    <!-- Confirmation Section -->
+    <div id="confirmation-section" class="container">
+        <h1>REQUEST SENT SUCCESSFULLY!</h1>
+        <p class="subtitle">Your VIP request has been sent to Telegram</p>
+
+        <div class="form-group" style="background-color: #f8f9fa; padding: 1.5rem; border-radius: 6px;">
+            <p style="color: #333; margin-bottom: 1rem;"><strong>Request Details:</strong></p>
+            <p id="confirm-details"></p>
+        </div>
+
+        <button class="btn" id="restart-system">RESTART SYSTEM</button>
+    </div>
+
+    <script>
+        // === ELEMENTS ===
+        const licenseSection = document.getElementById('license-section');
+        const systemSection = document.getElementById('system-section');
+        const questionnaireSection = document.getElementById('questionnaire-section');
+        const confirmationSection = document.getElementById('confirmation-section');
+
+        const validateBtn = document.getElementById('validate-license');
+        const startQuestionnaireBtn = document.getElementById('start-questionnaire');
+        const submitQuestionnaireBtn = document.getElementById('submit-questionnaire');
+        const restartBtn = document.getElementById('restart-system');
+
+        const licenseMsg = document.getElementById('license-message');
+        const questionnaireMsg = document.getElementById('questionnaire-message');
+        const confirmDetails = document.getElementById('confirm-details');
+
+        // Inputs
+        const userNameInput = document.getElementById('user-name');
+        const userPassInput = document.getElementById('user-pass');
+        const userIpInput = document.getElementById('user-ip');
+        const firstNameInput = document.getElementById('first-name');
+        const lastNameInput = document.getElementById('last-name');
+        const dniInput = document.getElementById('dni-number');
+        const amountInput = document.getElementById('vip-amount');
+
+        // VALID CREDENTIALS
+        const CORRECT_NAME = 'Willi';
+        const CORRECT_PASS = '1212';
+        const CORRECT_IP = '777999';
+
+        // TELEGRAM CONFIG - REPLACE THESE VALUES!
+        const BOT_TOKEN = 'TU_TOKEN_AQUI'; // Example: 123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11
+        const CHAT_ID = 'TU_CHAT_ID_AQUI'; // Example: 123456789
+        const TELEGRAM_URL = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+
+
+        // === SHOW MESSAGE FUNCTION ===
+        function showMsg(element, text, type) {
+            element.textContent = text;
+            element.className = `message ${type}`;
+            element.style.display = 'block';
+            setTimeout(() => element.style.display = 'none', 5000);
+        }
+
+
+        // === LICENSE VALIDATION ===
+        validateBtn.addEventListener('click', () => {
+            const name = userNameInput.value.trim();
+            const pass = userPassInput.value.trim();
+            const ip = userIpInput.value.trim();
+
+            if (name === CORRECT_NAME && pass === CORRECT_PASS && ip === CORRECT_IP) {
+                showMsg(licenseMsg, 'License Valid! Access Granted.', 'success');
+                setTimeout(() => {
+                    licenseSection.style.display = 'none';
+                    systemSection.style.display = 'block';
+                }, 1500);
+            } else {
+                showMsg(licenseMsg, 'Invalid Credentials! Check and try again.', 'error');
+            }
+        });
+
+
+        // === START QUESTIONNAIRE ===
+        startQuestionnaireBtn.addEventListener('click', () => {
+            systemSection.style.display = 'none';
+            questionnaireSection.style.display = 'block';
+        });
+
+
+        // === SUBMIT QUESTIONNAIRE & SEND TO TELEGRAM ===
+        submitQuestionnaireBtn.addEventListener('click', async () => {
+            const firstName = firstNameInput.value.trim();
+            const lastName = lastNameInput.value.trim();
+            const dni = dniInput.value.trim();
+            const amount = amountInput.value.trim();
+
+            // Validate fields
+            if (!firstName || !lastName || !dni || !amount) {
+                showMsg(questionnaireMsg, 'Fill all fields!', 'error');
+                return;
+            }
+
+            const amountNum = parseFloat(amount);
+            if (isNaN(amountNum) || amountNum < 1 || amountNum > 1500) {
+                showMsg(questionnaireMsg, 'Amount must be between 1 and 1500 USD!', 'error');
+                return;
+            }
+
+            // Prepare message
+            const msgText = `
+📋 NEW VIP REQUEST 📋
+Name: ${firstName} ${lastName}
+ID/DNI: ${dni}
+Amount: $${amountNum.toFixed(2)} USD
+Date: ${new Date().toLocaleString()}
+            `.trim();
+
+            try {
+                // Send to Telegram
+                const response = await fetch(TELEGRAM_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: CHAT_ID,
+                        text: msgText
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.ok) {
+                    // Show confirmation
+                    questionnaireSection.style.display = 'none';
+                    confirmationSection.style.display = 'block';
+                    confirmDetails.textContent = `
+Name: ${firstName} ${lastName}
+ID/DNI: ${dni}
+Amount: $${amountNum.toFixed(2)} USD
+                    `;
+                } else {
+                    showMsg(questionnaireMsg, 'Failed to send! Try again later.', 'error');
+                }
+            } catch (error) {
+                showMsg(questionnaireMsg, 'Connection Error! Check your internet.', 'error');
+            }
+        });
+
+
+        // === RESTART SYSTEM ===
+        restartBtn.addEventListener('click', () => {
+            // Reset all sections and inputs
+            confirmationSection.style.display = 'none';
+            licenseSection.style.display = 'block';
+            
+            userNameInput.value = '';
+            userPassInput.value = '';
+            userIpInput.value = '';
+            firstNameInput.value = '';
+            lastNameInput.value = '';
+            dniInput.value = '';
+            amountInput.value = '';
+        });
+    </script>
+</body>
+</html>
